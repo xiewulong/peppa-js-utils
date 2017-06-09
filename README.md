@@ -39,7 +39,7 @@ zeroFill(6);  // -> 06
 
 ```js
 /**
- * 数字补指定位数的零
+ * 为数字补指定位数的零
  * @since 0.0.1
  * @param {number} num 数字
  * @param {number} [len=2] 目标长度

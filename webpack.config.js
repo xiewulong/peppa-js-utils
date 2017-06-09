@@ -28,7 +28,6 @@ let webpackConfig = {
 			{
 				test: /\.js$/,
 				use: ['es3ify-loader', 'babel-loader'],
-				exclude: /node_modules/,
 			},
 		],
 	},

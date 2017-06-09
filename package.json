@@ -4,10 +4,9 @@
   "description": "Utils for javascript",
   "main": "index.js",
   "scripts": {
+    "release": "webpack --colors --devtool sourcemap --display-error-details --progress && webpack --colors --devtool sourcemap --display-error-details --progress --optimize-minimize",
     "test": "npm run test:zeroFill",
-    "test:zeroFill": "node ./samples/zeroFill.js",
-	"prepublish": "npm run release",
-	"release": "webpack --colors --devtool sourcemap --display-error-details --progress && webpack --colors --devtool sourcemap --display-error-details --progress --optimize-minimize"
+    "test:zeroFill": "node ./samples/zeroFill.js"
   },
   "repository": {
     "type": "git",
