@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "release": "webpack --colors --devtool sourcemap --display-error-details --progress && webpack --colors --devtool sourcemap --display-error-details --progress --optimize-minimize",
-    "test": "npm run test:zeroFill",
+    "test": "npm run test:numberFormat",
+    "test:date": "node ./samples/date.js",
+    "test:numberFormat": "node ./samples/numberFormat.js",
+    "test:truncate": "node ./samples/truncate.js",
     "test:zeroFill": "node ./samples/zeroFill.js"
   },
   "repository": {
