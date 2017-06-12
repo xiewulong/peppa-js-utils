@@ -1,4 +1,4 @@
-/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.5; https://github.com/xiewulong/peppa-utils#readme */
+/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.6; https://github.com/xiewulong/peppa-utils#readme */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -64,7 +64,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -108,68 +108,9 @@ module.exports = hasUnicode;
 "use strict";
 
 
-var root = __webpack_require__(34);
-
-/** Built-in value references. */
-var _Symbol = root.Symbol;
-
-module.exports = _Symbol;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _Symbol = __webpack_require__(1),
-    arrayMap = __webpack_require__(21),
-    isArray = __webpack_require__(37),
-    isSymbol = __webpack_require__(13);
-
-/** Used as references for various `Number` constants. */
-var INFINITY = 1 / 0;
-
-/** Used to convert symbols to primitives and strings. */
-var symbolProto = _Symbol ? _Symbol.prototype : undefined,
-    symbolToString = symbolProto ? symbolProto.toString : undefined;
-
-/**
- * The base implementation of `_.toString` which doesn't convert nullish
- * values to empty strings.
- *
- * @private
- * @param {*} value The value to process.
- * @returns {string} Returns the string.
- */
-function baseToString(value) {
-  // Exit early for strings to avoid a performance hit in some environments.
-  if (typeof value == 'string') {
-    return value;
-  }
-  if (isArray(value)) {
-    // Recursively convert values (susceptible to call stack limits).
-    return arrayMap(value, baseToString) + '';
-  }
-  if (isSymbol(value)) {
-    return symbolToString ? symbolToString.call(value) : '';
-  }
-  var result = value + '';
-  return result == '0' && 1 / value == -INFINITY ? '-0' : result;
-}
-
-module.exports = baseToString;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var asciiSize = __webpack_require__(22),
+var asciiSize = __webpack_require__(24),
     hasUnicode = __webpack_require__(0),
-    unicodeSize = __webpack_require__(35);
+    unicodeSize = __webpack_require__(36);
 
 /**
  * Gets the number of symbols in `string`.
@@ -185,13 +126,13 @@ function stringSize(string) {
 module.exports = stringSize;
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toFinite = __webpack_require__(41);
+var toFinite = __webpack_require__(43);
 
 /**
  * Converts `value` to an integer.
@@ -229,13 +170,13 @@ function toInteger(value) {
 module.exports = toInteger;
 
 /***/ }),
-/* 5 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseToString = __webpack_require__(2);
+var baseToString = __webpack_require__(5);
 
 /**
  * Converts `value` to a string. An empty string is returned for `null`
@@ -265,6 +206,65 @@ function toString(value) {
 module.exports = toString;
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root = __webpack_require__(35);
+
+/** Built-in value references. */
+var _Symbol = root.Symbol;
+
+module.exports = _Symbol;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(4),
+    arrayMap = __webpack_require__(23),
+    isArray = __webpack_require__(38),
+    isSymbol = __webpack_require__(14);
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = _Symbol ? _Symbol.prototype : undefined,
+    symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+/**
+ * The base implementation of `_.toString` which doesn't convert nullish
+ * values to empty strings.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  // Exit early for strings to avoid a performance hit in some environments.
+  if (typeof value == 'string') {
+    return value;
+  }
+  if (isArray(value)) {
+    // Recursively convert values (susceptible to call stack limits).
+    return arrayMap(value, baseToString) + '';
+  }
+  if (isSymbol(value)) {
+    return symbolToString ? symbolToString.call(value) : '';
+  }
+  var result = value + '';
+  return result == '0' && 1 / value == -INFINITY ? '-0' : result;
+}
+
+module.exports = baseToString;
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -277,7 +277,7 @@ module.exports = toString;
  */
 
 
-var _padStart = __webpack_require__(39);
+var _padStart = __webpack_require__(41);
 
 module.exports = function (num) {
   var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
@@ -292,9 +292,9 @@ module.exports = function (num) {
 "use strict";
 
 
-var _Symbol = __webpack_require__(1),
-    getRawTag = __webpack_require__(31),
-    objectToString = __webpack_require__(33);
+var _Symbol = __webpack_require__(4),
+    getRawTag = __webpack_require__(32),
+    objectToString = __webpack_require__(34);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -326,7 +326,7 @@ module.exports = baseGetTag;
 "use strict";
 
 
-var baseSlice = __webpack_require__(27);
+var baseSlice = __webpack_require__(29);
 
 /**
  * Casts `array` to a slice if it's needed.
@@ -350,6 +350,45 @@ module.exports = castSlice;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var baseRepeat = __webpack_require__(28),
+    baseToString = __webpack_require__(5),
+    castSlice = __webpack_require__(8),
+    hasUnicode = __webpack_require__(0),
+    stringSize = __webpack_require__(1),
+    stringToArray = __webpack_require__(11);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeCeil = Math.ceil;
+
+/**
+ * Creates the padding for `string` based on `length`. The `chars` string
+ * is truncated if the number of characters exceeds `length`.
+ *
+ * @private
+ * @param {number} length The padding length.
+ * @param {string} [chars=' '] The string used as padding.
+ * @returns {string} Returns the padding for `string`.
+ */
+function createPadding(length, chars) {
+  chars = chars === undefined ? ' ' : baseToString(chars);
+
+  var charsLength = chars.length;
+  if (charsLength < 2) {
+    return charsLength ? baseRepeat(chars, length) : chars;
+  }
+  var result = baseRepeat(chars, nativeCeil(length / stringSize(chars)));
+  return hasUnicode(chars) ? castSlice(stringToArray(result), 0, length).join('') : result.slice(0, length);
+}
+
+module.exports = createPadding;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -358,18 +397,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
 
 module.exports = freeGlobal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var asciiToArray = __webpack_require__(23),
+var asciiToArray = __webpack_require__(25),
     hasUnicode = __webpack_require__(0),
-    unicodeToArray = __webpack_require__(36);
+    unicodeToArray = __webpack_require__(37);
 
 /**
  * Converts `string` to an array.
@@ -385,7 +424,7 @@ function stringToArray(string) {
 module.exports = stringToArray;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -426,7 +465,7 @@ function isObject(value) {
 module.exports = isObject;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -465,7 +504,7 @@ function isObjectLike(value) {
 module.exports = isObjectLike;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -474,7 +513,7 @@ module.exports = isObjectLike;
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var baseGetTag = __webpack_require__(7),
-    isObjectLike = __webpack_require__(12);
+    isObjectLike = __webpack_require__(13);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -503,14 +542,14 @@ function isSymbol(value) {
 module.exports = isSymbol;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isObject = __webpack_require__(11),
-    isSymbol = __webpack_require__(13);
+var isObject = __webpack_require__(12),
+    isSymbol = __webpack_require__(14);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -575,7 +614,7 @@ function toNumber(value) {
 module.exports = toNumber;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -619,7 +658,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -633,7 +672,7 @@ module.exports = function () {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _round = __webpack_require__(40);
+var _round = __webpack_require__(42);
 
 module.exports = function (num) {
 	var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -671,7 +710,45 @@ module.exports = function (num) {
 };
 
 /***/ }),
-/* 17 */
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * 字符串转日期对象
+ * xiewulong <xiewulong@vip.qq.com>
+ * create: 2017/06/12
+ * since: 0.0.5
+ */
+
+
+var _padEnd = __webpack_require__(40);
+
+var max = 17;
+
+module.exports = function (str) {
+	str = _padEnd(str.replace(/\D/g, '').slice(0, max), max, 0);
+
+	var _str = [];
+	for (var i = 0, len = str.length; i < len; i++) {
+		if (i == 4 || i == 6) {
+			_str.push('-');
+		} else if (i == 8) {
+			_str.push(' ');
+		} else if (i == 10 || i == 12) {
+			_str.push(':');
+		} else if (i == 14) {
+			_str.push('.');
+		}
+
+		_str.push(str[i]);
+	}
+
+	return new Date(_str.join(''));
+};
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -683,7 +760,7 @@ module.exports = function (num) {
  */
 
 
-var _truncate = __webpack_require__(42);
+var _truncate = __webpack_require__(44);
 
 module.exports = function (str) {
   var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
@@ -698,7 +775,7 @@ module.exports = function (str) {
 };
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -710,20 +787,22 @@ module.exports = function (str) {
  */
 
 
-var dateFormat = __webpack_require__(15);
-var numberFormat = __webpack_require__(16);
-var truncate = __webpack_require__(17);
+var dateFormat = __webpack_require__(16);
+var numberFormat = __webpack_require__(17);
+var strToDate = __webpack_require__(18);
+var truncate = __webpack_require__(19);
 var zeroFill = __webpack_require__(6);
 
 module.exports = {
   dateFormat: dateFormat,
   numberFormat: numberFormat,
+  strToDate: strToDate,
   truncate: truncate,
   zeroFill: zeroFill
 };
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -753,7 +832,7 @@ try {
 module.exports = g;
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -783,7 +862,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -812,13 +891,13 @@ function arrayMap(array, iteratee) {
 module.exports = arrayMap;
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseProperty = __webpack_require__(25);
+var baseProperty = __webpack_require__(27);
 
 /**
  * Gets the size of an ASCII `string`.
@@ -832,7 +911,7 @@ var asciiSize = baseProperty('length');
 module.exports = asciiSize;
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -852,14 +931,14 @@ function asciiToArray(string) {
 module.exports = asciiToArray;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var baseGetTag = __webpack_require__(7),
-    isObjectLike = __webpack_require__(12);
+    isObjectLike = __webpack_require__(13);
 
 /** `Object#toString` result references. */
 var regexpTag = '[object RegExp]';
@@ -878,7 +957,7 @@ function baseIsRegExp(value) {
 module.exports = baseIsRegExp;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -900,7 +979,7 @@ function baseProperty(key) {
 module.exports = baseProperty;
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -943,7 +1022,7 @@ function baseRepeat(string, n) {
 module.exports = baseRepeat;
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -982,7 +1061,7 @@ function baseSlice(array, start, end) {
 module.exports = baseSlice;
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1004,54 +1083,15 @@ function baseUnary(func) {
 module.exports = baseUnary;
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseRepeat = __webpack_require__(26),
-    baseToString = __webpack_require__(2),
-    castSlice = __webpack_require__(8),
-    hasUnicode = __webpack_require__(0),
-    stringSize = __webpack_require__(3),
-    stringToArray = __webpack_require__(10);
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeCeil = Math.ceil;
-
-/**
- * Creates the padding for `string` based on `length`. The `chars` string
- * is truncated if the number of characters exceeds `length`.
- *
- * @private
- * @param {number} length The padding length.
- * @param {string} [chars=' '] The string used as padding.
- * @returns {string} Returns the padding for `string`.
- */
-function createPadding(length, chars) {
-  chars = chars === undefined ? ' ' : baseToString(chars);
-
-  var charsLength = chars.length;
-  if (charsLength < 2) {
-    return charsLength ? baseRepeat(chars, length) : chars;
-  }
-  var result = baseRepeat(chars, nativeCeil(length / stringSize(chars)));
-  return hasUnicode(chars) ? castSlice(stringToArray(result), 0, length).join('') : result.slice(0, length);
-}
-
-module.exports = createPadding;
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var toInteger = __webpack_require__(4),
-    toNumber = __webpack_require__(14),
-    toString = __webpack_require__(5);
+var toInteger = __webpack_require__(2),
+    toNumber = __webpack_require__(15),
+    toString = __webpack_require__(3);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMin = Math.min;
@@ -1084,13 +1124,13 @@ function createRound(methodName) {
 module.exports = createRound;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _Symbol = __webpack_require__(1);
+var _Symbol = __webpack_require__(4);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -1138,7 +1178,7 @@ function getRawTag(value) {
 module.exports = getRawTag;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1146,7 +1186,7 @@ module.exports = getRawTag;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var freeGlobal = __webpack_require__(9);
+var freeGlobal = __webpack_require__(10);
 
 /** Detect free variable `exports`. */
 var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
@@ -1168,10 +1208,10 @@ var nodeUtil = function () {
 }();
 
 module.exports = nodeUtil;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1201,7 +1241,7 @@ function objectToString(value) {
 module.exports = objectToString;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1209,7 +1249,7 @@ module.exports = objectToString;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var freeGlobal = __webpack_require__(9);
+var freeGlobal = __webpack_require__(10);
 
 /** Detect free variable `self`. */
 var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
@@ -1220,7 +1260,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 module.exports = root;
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1272,7 +1312,7 @@ function unicodeSize(string) {
 module.exports = unicodeSize;
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1320,7 +1360,7 @@ function unicodeToArray(string) {
 module.exports = unicodeToArray;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1354,15 +1394,15 @@ var isArray = Array.isArray;
 module.exports = isArray;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseIsRegExp = __webpack_require__(24),
-    baseUnary = __webpack_require__(28),
-    nodeUtil = __webpack_require__(32);
+var baseIsRegExp = __webpack_require__(26),
+    baseUnary = __webpack_require__(30),
+    nodeUtil = __webpack_require__(33);
 
 /* Node.js helper references. */
 var nodeIsRegExp = nodeUtil && nodeUtil.isRegExp;
@@ -1389,16 +1429,61 @@ var isRegExp = nodeIsRegExp ? baseUnary(nodeIsRegExp) : baseIsRegExp;
 module.exports = isRegExp;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createPadding = __webpack_require__(29),
-    stringSize = __webpack_require__(3),
-    toInteger = __webpack_require__(4),
-    toString = __webpack_require__(5);
+var createPadding = __webpack_require__(9),
+    stringSize = __webpack_require__(1),
+    toInteger = __webpack_require__(2),
+    toString = __webpack_require__(3);
+
+/**
+ * Pads `string` on the right side if it's shorter than `length`. Padding
+ * characters are truncated if they exceed `length`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category String
+ * @param {string} [string=''] The string to pad.
+ * @param {number} [length=0] The padding length.
+ * @param {string} [chars=' '] The string used as padding.
+ * @returns {string} Returns the padded string.
+ * @example
+ *
+ * _.padEnd('abc', 6);
+ * // => 'abc   '
+ *
+ * _.padEnd('abc', 6, '_-');
+ * // => 'abc_-_'
+ *
+ * _.padEnd('abc', 3);
+ * // => 'abc'
+ */
+function padEnd(string, length, chars) {
+    string = toString(string);
+    length = toInteger(length);
+
+    var strLength = length ? stringSize(string) : 0;
+    return length && strLength < length ? string + createPadding(length - strLength, chars) : string;
+}
+
+module.exports = padEnd;
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createPadding = __webpack_require__(9),
+    stringSize = __webpack_require__(1),
+    toInteger = __webpack_require__(2),
+    toString = __webpack_require__(3);
 
 /**
  * Pads `string` on the left side if it's shorter than `length`. Padding
@@ -1434,13 +1519,13 @@ function padStart(string, length, chars) {
 module.exports = padStart;
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createRound = __webpack_require__(30);
+var createRound = __webpack_require__(31);
 
 /**
  * Computes `number` rounded to `precision`.
@@ -1468,13 +1553,13 @@ var round = createRound('round');
 module.exports = round;
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toNumber = __webpack_require__(14);
+var toNumber = __webpack_require__(15);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0,
@@ -1518,21 +1603,21 @@ function toFinite(value) {
 module.exports = toFinite;
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseToString = __webpack_require__(2),
+var baseToString = __webpack_require__(5),
     castSlice = __webpack_require__(8),
     hasUnicode = __webpack_require__(0),
-    isObject = __webpack_require__(11),
-    isRegExp = __webpack_require__(38),
-    stringSize = __webpack_require__(3),
-    stringToArray = __webpack_require__(10),
-    toInteger = __webpack_require__(4),
-    toString = __webpack_require__(5);
+    isObject = __webpack_require__(12),
+    isRegExp = __webpack_require__(39),
+    stringSize = __webpack_require__(1),
+    stringToArray = __webpack_require__(11),
+    toInteger = __webpack_require__(2),
+    toString = __webpack_require__(3);
 
 /** Used as default options for `_.truncate`. */
 var DEFAULT_TRUNC_LENGTH = 30,
