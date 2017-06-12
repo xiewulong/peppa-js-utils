@@ -1,12 +1,12 @@
 {
   "name": "peppa-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Utils for javascript",
   "main": "index.js",
   "scripts": {
     "release": "webpack --colors --devtool sourcemap --display-error-details --progress && webpack --colors --devtool sourcemap --display-error-details --progress --optimize-minimize",
-    "test": "npm run test:numberFormat",
-    "test:date": "node ./samples/date.js",
+    "test": "npm run test:truncate",
+    "test:dateFormat": "node ./samples/dateFormat.js",
     "test:numberFormat": "node ./samples/numberFormat.js",
     "test:truncate": "node ./samples/truncate.js",
     "test:zeroFill": "node ./samples/zeroFill.js"
