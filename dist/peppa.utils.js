@@ -1,4 +1,4 @@
-/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.3; https://github.com/xiewulong/peppa-utils#readme */
+/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.4; https://github.com/xiewulong/peppa-utils#readme */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
