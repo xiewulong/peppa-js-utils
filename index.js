@@ -6,8 +6,14 @@
  */
 'use strict';
 
+const dateFormat = require('./dateFormat');
+const numberFormat = require('./numberFormat');
+const truncate = require('./truncate');
 const zeroFill = require('./zeroFill');
 
 module.exports = {
+	dateFormat,
+	numberFormat,
+	truncate,
 	zeroFill,
 };
