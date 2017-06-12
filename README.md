@@ -10,6 +10,7 @@ js实用工具库
 * [使用](#使用)
 * [dateFormat](#dateFormat)
 * [numberFormat](#numberFormat)
+* [strToDate](#strToDate)
 * [truncate](#truncate)
 * [zeroFill](#zeroFill)
 * [License](#license)
@@ -110,6 +111,32 @@ numberFormat(1234567890.0987654321, -2);          // -> 1,234,567,900
 numberFormat(1234567890.0987654321, 2);           // -> 1,234,567,890.10
 numberFormat(1234567890.0987654321, 2, '');       // -> 1234567890.10
 numberFormat(1234567890.0987654321, 2, ' ', ','); // -> 1 234 567 890,10
+```
+
+## strToDate
+
+```js
+/**
+ * 字符串转日期对象
+ * @since 0.0.5
+ * @param {string} str 描述日期的字符串
+ * @return {object} 日期对象
+ */
+numberFormat(str);
+```
+
+Example
+
+```js
+strToDate('2017-06-12 16:16:16.16');  // -> 2017-06-12T08:16:16.160Z
+strToDate('2017061216161616');        // -> 2017-06-12T08:16:16.160Z
+strToDate('a2017b06c12d16e16f16g16'); // -> 2017-06-12T08:16:16.160Z
+strToDate('20170612161616');          // -> 2017-06-12T08:16:16.000Z
+strToDate('201706121616');            // -> 2017-06-12T08:16:00.000Z
+strToDate('2017061216');              // -> 2017-06-12T08:00:00.000Z
+strToDate('20170612');                // -> 2017-06-11T16:00:00.000Z
+strToDate('201706');                  // -> Invalid Date
+strToDate('2017');                    // -> Invalid Date
 ```
 
 ## truncate
