@@ -122,7 +122,7 @@ numberFormat(1234567890.0987654321, 2, ' ', ','); // -> 1 234 567 890,10
  * @param {string} str 描述日期的字符串
  * @return {object} 日期对象
  */
-numberFormat(str);
+strToDate(str);
 ```
 
 Example
