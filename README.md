@@ -7,7 +7,7 @@ js实用工具库
 <details>
 
 * [安装](#install)
-* [使用方式](#useage)
+* [使用](#useage)
 * [dateFormat](#dateFormat)
 * [numberFormat](#numberFormat)
 * [strToDate](#strToDate)
@@ -27,7 +27,7 @@ $ npm i [-S|-D] peppa-utils
 
 ## Useage
 
-使用方式
+使用
 
 整体引入
 
