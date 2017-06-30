@@ -8,11 +8,11 @@ js实用工具库
 
 * [安装](#install)
 * [使用](#useage)
-* [dateFormat](#dateFormat)
-* [numberFormat](#numberFormat)
-* [strToDate](#strToDate)
-* [truncate](#truncate)
-* [zeroFill](#zeroFill)
+* [日期格式化](#dateFormat)
+* [数字格式化](#numberFormat)
+* [字符串转日期对象](#strToDate)
+* [字符串截取](#truncate)
+* [为数字补指定位数的零](#zeroFill)
 * [License](#license)
 
 </details>
