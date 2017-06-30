@@ -6,8 +6,8 @@ js实用工具库
 
 <details>
 
-* [安装](#安装)
-* [使用](#使用)
+* [安装](#install)
+* [使用方式](#useage)
 * [dateFormat](#dateFormat)
 * [numberFormat](#numberFormat)
 * [strToDate](#strToDate)
@@ -17,13 +17,17 @@ js实用工具库
 
 </details>
 
-## 安装
+## Install
+
+安装
 
 ```bash
 $ npm i [-S|-D] peppa-utils
 ```
 
-## 使用
+## Useage
+
+使用方式
 
 整体引入
 
