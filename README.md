@@ -50,7 +50,7 @@ zeroFill(6);  // -> 06
  * 日期格式化
  * @since 0.0.3
  * @param {string} [format='yyyy-MM-dd HH:mm:ss'] 格式
- * @param {object} [date=new Date] 保留小数位数, 超出则四舍五入取整, 可为负数. 默认0不保留小数
+ * @param {object} [date=new Date] 日期对象, 默认取当前日期对象
  * @return {string} 格式化后的字符串
  */
 dateFormat([format='yyyy-MM-dd HH:mm:ss'], [date=new Date]);
