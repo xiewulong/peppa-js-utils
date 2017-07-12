@@ -6,24 +6,28 @@ js实用工具库
 
 <details>
 
-* [安装](#安装)
-* [使用](#使用)
-* [dateFormat](#dateFormat)
-* [numberFormat](#numberFormat)
-* [strToDate](#strToDate)
-* [truncate](#truncate)
-* [zeroFill](#zeroFill)
+* [安装](#install)
+* [使用](#useage)
+* [日期格式化](#dateFormat)
+* [数字格式化](#numberFormat)
+* [字符串转日期对象](#strToDate)
+* [字符串截取](#truncate)
+* [为数字补指定位数的零](#zeroFill)
 * [License](#license)
 
 </details>
 
-## 安装
+## Install
+
+安装
 
 ```bash
 $ npm i [-S|-D] peppa-utils
 ```
 
-## 使用
+## Useage
+
+使用
 
 整体引入
 
@@ -46,7 +50,7 @@ zeroFill(6);  // -> 06
  * 日期格式化
  * @since 0.0.3
  * @param {string} [format='yyyy-MM-dd HH:mm:ss'] 格式
- * @param {object} [date=new Date] 保留小数位数, 超出则四舍五入取整, 可为负数. 默认0不保留小数
+ * @param {object} [date=new Date] 日期对象, 默认取当前日期对象
  * @return {string} 格式化后的字符串
  */
 dateFormat([format='yyyy-MM-dd HH:mm:ss'], [date=new Date]);
@@ -67,7 +71,7 @@ dateFormat('O dd, yyyy, D', new Date('2017-6-12 6:6:6.006')));          // -> Ju
 
 格式字符 | 描述 | 返回值示例
 -|-|-
-(yy)yy | 两(四)位数的年份完整 | (19)99或(20)03
+(yy)yy | (四)两位数的年份完整 | (19)99或(20)03
 (M)M | (带前导零)月份 | (0)1-12
 (d)d | (带前导零)日期 | (0)1-31
 (H)H | (带前导零)24小时制时钟 | (0)0-23

@@ -19,7 +19,7 @@ module.exports = (format = defaultFormat, date = new Date) => {
 	}
 
 	let yyyy = date.getFullYear();
-	let M = date.getMonth() + 1;
+	let _M = date.getMonth();
 	let d = date.getDate();
 	let H = date.getHours();
 	let m = date.getMinutes();
@@ -27,7 +27,8 @@ module.exports = (format = defaultFormat, date = new Date) => {
 	let v = date.getMilliseconds();
 	let w = date.getDay();
 
-	let O = months[M];
+	let M = _M + 1;
+	let O = months[_M];
 	let D = days[w];
 	let h = (H + 12 - 1) % 12;
 
