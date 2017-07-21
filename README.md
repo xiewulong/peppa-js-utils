@@ -59,14 +59,14 @@ dateFormat([format='yyyy-MM-dd HH:mm:ss'], [date=new Date]);
 Example
 
 ```js
-dateFormat();                                                           // -> 格式为'yyyy-MM-dd HH:mm:ss'的当前时间
-dateFormat(new Date('2017-6-12 6:6:6.6'));                              // -> 2017-06-11 06:06:06
-dateFormat('yyyy-MM-dd HH:mm:ss', new Date('2017-6-12 6:6:6.6'));       // -> 2017-06-12 06:06:06
-dateFormat('yyyy-MM-dd HH:mm:ss vvv', new Date('2017-6-12 6:6:6.06'));  // -> 2017-06-12 06:06:06 060
-dateFormat('yy-M-d h:m:s v a', new Date('2017/6/12 16:6:6.006'));       // -> 17-6-12 5:6:6 6 pm
-dateFormat('yy-M-d h:m:s v A', new Date('2017/6/12 6:6:6.6'));          // -> 17-6-12 7:6:6 600 AM
-dateFormat('OOO dd, yyyy, DDD', new Date('2017-6-12 6:6:6.06'));        // -> Jul 12, 2017, Mon
-dateFormat('O dd, yyyy, D', new Date('2017-6-12 6:6:6.006')));          // -> July 12, 2017, Monday
+dateFormat();                                                         // -> 格式为'yyyy-MM-dd HH:mm:ss'的当前时间
+dateFormat(new Date('2017/6/12 6:6:6'));                              // -> 2017-06-11 06:06:06
+dateFormat('yyyy-MM-dd HH:mm:ss', new Date('2017/6/12 6:6:6'));       // -> 2017-06-12 06:06:06
+dateFormat('yyyy-MM-dd HH:mm:ss vvv', new Date('2017/6/12 6:6:6'));   // -> 2017-06-12 06:06:06 000
+dateFormat('yy-M-d h:m:s v a', new Date('2017/6/12 16:6:6'));         // -> 17-6-12 3:6:6 0 pm
+dateFormat('yy-M-d h:m:s v A', new Date('2017/6/12 6:6:6'));          // -> 17-6-12 5:6:6 0 AM
+dateFormat('OOO dd, yyyy, DDD', new Date('2017/6/12 6:6:6'));         // -> Jun 12, 2017, Mon
+dateFormat('O dd, yyyy, D', new Date('2017/6/12 6:6:6')));            // -> June 12, 2017, Monday
 ```
 
 格式字符 | 描述 | 返回值示例
@@ -132,9 +132,8 @@ strToDate(str);
 Example
 
 ```js
-strToDate('2017-06-12 16:16:16.16');  // -> 2017-06-12T08:16:16.160Z
-strToDate('2017061216161616');        // -> 2017-06-12T08:16:16.160Z
-strToDate('a2017b06c12d16e16f16g16'); // -> 2017-06-12T08:16:16.160Z
+strToDate('2017-06-12 16:16:16');     // -> 2017-06-12T08:16:16.000Z
+strToDate('a2017b06c12d16e16f16g');   // -> 2017-06-12T08:16:16.000Z
 strToDate('20170612161616');          // -> 2017-06-12T08:16:16.000Z
 strToDate('201706121616');            // -> 2017-06-12T08:16:00.000Z
 strToDate('2017061216');              // -> 2017-06-12T08:00:00.000Z
