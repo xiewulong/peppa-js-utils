@@ -1,4 +1,4 @@
-/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.6; https://github.com/xiewulong/peppa-utils#readme */
+/*! peppa-utils - Utils for javascript; xiewulong <xiewulong@vip.qq.com>; v0.0.9; https://github.com/xiewulong/peppa-js-utils#readme */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -108,9 +108,9 @@ module.exports = hasUnicode;
 "use strict";
 
 
-var asciiSize = __webpack_require__(24),
+var asciiSize = __webpack_require__(22),
     hasUnicode = __webpack_require__(0),
-    unicodeSize = __webpack_require__(36);
+    unicodeSize = __webpack_require__(34);
 
 /**
  * Gets the number of symbols in `string`.
@@ -132,7 +132,7 @@ module.exports = stringSize;
 "use strict";
 
 
-var toFinite = __webpack_require__(43);
+var toFinite = __webpack_require__(41);
 
 /**
  * Converts `value` to an integer.
@@ -212,7 +212,7 @@ module.exports = toString;
 "use strict";
 
 
-var root = __webpack_require__(35);
+var root = __webpack_require__(33);
 
 /** Built-in value references. */
 var _Symbol = root.Symbol;
@@ -227,8 +227,8 @@ module.exports = _Symbol;
 
 
 var _Symbol = __webpack_require__(4),
-    arrayMap = __webpack_require__(23),
-    isArray = __webpack_require__(38),
+    arrayMap = __webpack_require__(21),
+    isArray = __webpack_require__(36),
     isSymbol = __webpack_require__(14);
 
 /** Used as references for various `Number` constants. */
@@ -277,7 +277,7 @@ module.exports = baseToString;
  */
 
 
-var _padStart = __webpack_require__(41);
+var _padStart = __webpack_require__(39);
 
 module.exports = function (num) {
   var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
@@ -293,8 +293,8 @@ module.exports = function (num) {
 
 
 var _Symbol = __webpack_require__(4),
-    getRawTag = __webpack_require__(32),
-    objectToString = __webpack_require__(34);
+    getRawTag = __webpack_require__(30),
+    objectToString = __webpack_require__(32);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -326,7 +326,7 @@ module.exports = baseGetTag;
 "use strict";
 
 
-var baseSlice = __webpack_require__(29);
+var baseSlice = __webpack_require__(27);
 
 /**
  * Casts `array` to a slice if it's needed.
@@ -352,7 +352,7 @@ module.exports = castSlice;
 "use strict";
 
 
-var baseRepeat = __webpack_require__(28),
+var baseRepeat = __webpack_require__(26),
     baseToString = __webpack_require__(5),
     castSlice = __webpack_require__(8),
     hasUnicode = __webpack_require__(0),
@@ -397,7 +397,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
 
 module.exports = freeGlobal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43)))
 
 /***/ }),
 /* 11 */
@@ -406,9 +406,9 @@ module.exports = freeGlobal;
 "use strict";
 
 
-var asciiToArray = __webpack_require__(25),
+var asciiToArray = __webpack_require__(23),
     hasUnicode = __webpack_require__(0),
-    unicodeToArray = __webpack_require__(37);
+    unicodeToArray = __webpack_require__(35);
 
 /**
  * Converts `string` to an array.
@@ -633,28 +633,29 @@ var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 module.exports = function () {
-	var format = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultFormat;
-	var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
+  var format = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultFormat;
+  var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
 
-	if (format instanceof Date) {
-		date = format;
-		format = defaultFormat;
-	}
+  if (format instanceof Date) {
+    date = format;
+    format = defaultFormat;
+  }
 
-	var yyyy = date.getFullYear();
-	var M = date.getMonth() + 1;
-	var d = date.getDate();
-	var H = date.getHours();
-	var m = date.getMinutes();
-	var s = date.getSeconds();
-	var v = date.getMilliseconds();
-	var w = date.getDay();
+  var yyyy = date.getFullYear();
+  var _M = date.getMonth();
+  var d = date.getDate();
+  var H = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  var v = date.getMilliseconds();
+  var w = date.getDay();
 
-	var O = months[M];
-	var D = days[w];
-	var h = (H + 12 - 1) % 12;
+  var M = _M + 1;
+  var O = months[_M];
+  var D = days[w];
+  var h = (H + 12 - 1) % 12;
 
-	return format.replace(/yyyy/g, yyyy).replace(/yy/g, yyyy.toString().slice(-2)).replace(/MM/g, zeroFill(M)).replace(/M/g, M).replace(/dd/g, zeroFill(d)).replace(/d/g, d).replace(/HH/g, zeroFill(H)).replace(/H/g, H).replace(/hh/g, zeroFill(h)).replace(/h/g, h).replace(/mm/g, zeroFill(m)).replace(/m/g, m).replace(/ss/g, zeroFill(s)).replace(/s/g, s).replace(/vvv/g, zeroFill(v, 3)).replace(/v/g, v).replace(/w/g, w).replace(/L/g, yyyy / 4 ? 0 : 1).replace(/a/g, H < 12 ? 'am' : 'pm').replace(/A/g, H < 12 ? 'AM' : 'PM').replace(/OOO/g, O.slice(0, 3)).replace(/O/g, O).replace(/DDD/g, D.slice(0, 3)).replace(/D/g, D);
+  return format.replace(/yyyy/g, yyyy).replace(/yy/g, yyyy.toString().slice(-2)).replace(/MM/g, zeroFill(M)).replace(/M/g, M).replace(/dd/g, zeroFill(d)).replace(/d/g, d).replace(/HH/g, zeroFill(H)).replace(/H/g, H).replace(/hh/g, zeroFill(h)).replace(/h/g, h).replace(/mm/g, zeroFill(m)).replace(/m/g, m).replace(/ss/g, zeroFill(s)).replace(/s/g, s).replace(/vvv/g, zeroFill(v, 3)).replace(/v/g, v).replace(/w/g, w).replace(/L/g, yyyy / 4 ? 0 : 1).replace(/a/g, H < 12 ? 'am' : 'pm').replace(/A/g, H < 12 ? 'AM' : 'PM').replace(/OOO/g, O.slice(0, 3)).replace(/O/g, O).replace(/DDD/g, D.slice(0, 3)).replace(/D/g, D);
 };
 
 /***/ }),
@@ -672,41 +673,39 @@ module.exports = function () {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _round = __webpack_require__(42);
+var _round = __webpack_require__(40);
 
 module.exports = function (num) {
-	var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-	var thousands_separator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ',';
-	var decimals_point = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '.';
+  var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var thousands_separator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ',';
+  var decimals_point = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '.';
 
-	num = _round(num, decimals);
-	if (decimals > 0) {
-		num = num.toFixed(decimals);
-	}
+  num = _round(num, decimals);
+  if (decimals > 0) {
+    num = num.toFixed(decimals);
+  }
 
-	num = num.toString().replace('.', decimals_point);
+  num = num.toString().replace('.', decimals_point);
 
-	var _num$split = num.split(decimals_point),
-	    _num$split2 = _slicedToArray(_num$split, 2),
-	    ints = _num$split2[0],
-	    decs = _num$split2[1];
+  var _num$split = num.split(decimals_point),
+      _num$split2 = _slicedToArray(_num$split, 2),
+      ints = _num$split2[0],
+      decs = _num$split2[1];
 
-	var numArr = [];
-	for (var _i, len = ints.length, i = len - 1; i >= 0; i--) {
-		_i = len - i;
-		if (_i > 1 && _i % 3 == 1) {
-			numArr.unshift(thousands_separator);
-		}
+  var numArr = [];
+  for (var _i, len = ints.length, i = len - 1; i >= 0; i--) {
+    _i = len - i;
+    _i > 1 && _i % 3 == 1 && numArr.unshift(thousands_separator);
 
-		numArr.unshift(ints[i]);
-	}
+    numArr.unshift(ints[i]);
+  }
 
-	if (decs) {
-		numArr.push(decimals_point);
-		numArr.push(decs);
-	}
+  if (decs) {
+    numArr.push(decimals_point);
+    numArr.push(decs);
+  }
 
-	return numArr.join('');
+  return numArr.join('');
 };
 
 /***/ }),
@@ -722,29 +721,27 @@ module.exports = function (num) {
  */
 
 
-var _padEnd = __webpack_require__(40);
+var _padEnd = __webpack_require__(38);
 
-var max = 17;
+var max = 14;
 
 module.exports = function (str) {
-	str = _padEnd(str.replace(/\D/g, '').slice(0, max), max, 0);
+  str = _padEnd(str.replace(/\D/g, '').slice(0, max), max, 0);
 
-	var _str = [];
-	for (var i = 0, len = str.length; i < len; i++) {
-		if (i == 4 || i == 6) {
-			_str.push('-');
-		} else if (i == 8) {
-			_str.push(' ');
-		} else if (i == 10 || i == 12) {
-			_str.push(':');
-		} else if (i == 14) {
-			_str.push('.');
-		}
+  var _str = [];
+  for (var i = 0, len = str.length; i < len; i++) {
+    if (i == 4 || i == 6) {
+      _str.push('/');
+    } else if (i == 8) {
+      _str.push(' ');
+    } else if (i == 10 || i == 12) {
+      _str.push(':');
+    }
 
-		_str.push(str[i]);
-	}
+    _str.push(str[i]);
+  }
 
-	return new Date(_str.join(''));
+  return new Date(_str.join(''));
 };
 
 /***/ }),
@@ -760,7 +757,7 @@ module.exports = function (str) {
  */
 
 
-var _truncate = __webpack_require__(44);
+var _truncate = __webpack_require__(42);
 
 module.exports = function (str) {
   var len = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
@@ -780,7 +777,7 @@ module.exports = function (str) {
 
 "use strict";
 /*!
- * peppa utils
+ * Peppa utils
  * xiewulong <xiewulong@vip.qq.com>
  * create: 2017/06/09
  * since: 0.0.1
@@ -793,7 +790,7 @@ var strToDate = __webpack_require__(18);
 var truncate = __webpack_require__(19);
 var zeroFill = __webpack_require__(6);
 
-module.exports = {
+window.utils = module.exports = module.exports["default"] = {
   dateFormat: dateFormat,
   numberFormat: numberFormat,
   strToDate: strToDate,
@@ -803,66 +800,6 @@ module.exports = {
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var g;
-
-// This works in non-strict mode
-g = function () {
-	return this;
-}();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1, eval)("this");
-} catch (e) {
-	// This works if the window reference is available
-	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function (module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function () {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function get() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function get() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-/***/ }),
-/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -891,13 +828,13 @@ function arrayMap(array, iteratee) {
 module.exports = arrayMap;
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseProperty = __webpack_require__(27);
+var baseProperty = __webpack_require__(25);
 
 /**
  * Gets the size of an ASCII `string`.
@@ -911,7 +848,7 @@ var asciiSize = baseProperty('length');
 module.exports = asciiSize;
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -931,7 +868,7 @@ function asciiToArray(string) {
 module.exports = asciiToArray;
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -957,7 +894,7 @@ function baseIsRegExp(value) {
 module.exports = baseIsRegExp;
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -979,7 +916,7 @@ function baseProperty(key) {
 module.exports = baseProperty;
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1022,7 +959,7 @@ function baseRepeat(string, n) {
 module.exports = baseRepeat;
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1061,7 +998,7 @@ function baseSlice(array, start, end) {
 module.exports = baseSlice;
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1083,7 +1020,7 @@ function baseUnary(func) {
 module.exports = baseUnary;
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1124,7 +1061,7 @@ function createRound(methodName) {
 module.exports = createRound;
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1178,7 +1115,7 @@ function getRawTag(value) {
 module.exports = getRawTag;
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1203,15 +1140,23 @@ var freeProcess = moduleExports && freeGlobal.process;
 /** Used to access faster Node.js helpers. */
 var nodeUtil = function () {
   try {
+    // Use `util.types` for Node.js 10+.
+    var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+    if (types) {
+      return types;
+    }
+
+    // Legacy `process.binding('util')` for Node.js < 10.
     return freeProcess && freeProcess.binding && freeProcess.binding('util');
   } catch (e) {}
 }();
 
 module.exports = nodeUtil;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)(module)))
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1241,7 +1186,7 @@ function objectToString(value) {
 module.exports = objectToString;
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1260,7 +1205,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 module.exports = root;
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1312,7 +1257,7 @@ function unicodeSize(string) {
 module.exports = unicodeSize;
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1360,7 +1305,7 @@ function unicodeToArray(string) {
 module.exports = unicodeToArray;
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1394,15 +1339,15 @@ var isArray = Array.isArray;
 module.exports = isArray;
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var baseIsRegExp = __webpack_require__(26),
-    baseUnary = __webpack_require__(30),
-    nodeUtil = __webpack_require__(33);
+var baseIsRegExp = __webpack_require__(24),
+    baseUnary = __webpack_require__(28),
+    nodeUtil = __webpack_require__(31);
 
 /* Node.js helper references. */
 var nodeIsRegExp = nodeUtil && nodeUtil.isRegExp;
@@ -1429,7 +1374,7 @@ var isRegExp = nodeIsRegExp ? baseUnary(nodeIsRegExp) : baseIsRegExp;
 module.exports = isRegExp;
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1474,7 +1419,7 @@ function padEnd(string, length, chars) {
 module.exports = padEnd;
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1519,13 +1464,13 @@ function padStart(string, length, chars) {
 module.exports = padStart;
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createRound = __webpack_require__(31);
+var createRound = __webpack_require__(29);
 
 /**
  * Computes `number` rounded to `precision`.
@@ -1553,7 +1498,7 @@ var round = createRound('round');
 module.exports = round;
 
 /***/ }),
-/* 43 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1603,7 +1548,7 @@ function toFinite(value) {
 module.exports = toFinite;
 
 /***/ }),
-/* 44 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1613,7 +1558,7 @@ var baseToString = __webpack_require__(5),
     castSlice = __webpack_require__(8),
     hasUnicode = __webpack_require__(0),
     isObject = __webpack_require__(12),
-    isRegExp = __webpack_require__(39),
+    isRegExp = __webpack_require__(37),
     stringSize = __webpack_require__(1),
     stringToArray = __webpack_require__(11),
     toInteger = __webpack_require__(2),
@@ -1718,6 +1663,66 @@ function truncate(string, options) {
 }
 
 module.exports = truncate;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var g;
+
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function () {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function get() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function get() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
 
 /***/ })
 /******/ ]);

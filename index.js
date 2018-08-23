@@ -12,7 +12,7 @@ const strToDate = require('./strToDate');
 const truncate = require('./truncate');
 const zeroFill = require('./zeroFill');
 
-module.exports = {
+window.utils = module.exports = module.exports.default = {
   dateFormat,
   numberFormat,
   strToDate,

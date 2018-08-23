@@ -32,7 +32,7 @@ $ npm i [-S|-D] peppa-utils
 整体引入
 
 ```js
-const Utils = require('peppa-utils');
+const utils = require('peppa-utils');
 Utils.zeroFill(6);  // -> 06
 ```
 
