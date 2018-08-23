@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiewulong/peppa-utils.git"
+    "url": "git+https://github.com/xiewulong/peppa-js-utils.git"
   },
   "keywords": [
     "peppa",
@@ -25,9 +25,9 @@
   "author": "xiewulong <xiewulong@vip.qq.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xiewulong/peppa-utils/issues"
+    "url": "https://github.com/xiewulong/peppa-js-utils/issues"
   },
-  "homepage": "https://github.com/xiewulong/peppa-utils#readme",
+  "homepage": "https://github.com/xiewulong/peppa-js-utils#readme",
   "dependencies": {
     "lodash": "^4.17.4"
   },

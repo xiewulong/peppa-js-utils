@@ -9,5 +9,5 @@
 const _padStart = require('lodash/padStart');
 
 module.exports = (num, len = 2) => {
-	return _padStart(num, len, 0);
+  return _padStart(num, len, 0);
 };

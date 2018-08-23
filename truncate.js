@@ -9,9 +9,9 @@
 const _truncate = require('lodash/truncate');
 
 module.exports = (str, len = 30, omission = '...', separator = ',') => {
-	return _truncate(str, {
-		length: len,
-		omission,
-		separator,
-	});
+  return _truncate(str, {
+    length: len,
+    omission,
+    separator,
+  });
 };
