@@ -1,6 +1,6 @@
 {
   "name": "peppa-utils",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Utils for javascript",
   "main": "index.js",
   "scripts": {

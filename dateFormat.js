@@ -30,7 +30,7 @@ module.exports = (format = defaultFormat, date = new Date) => {
   let M = _M + 1;
   let O = months[_M];
   let D = days[w];
-  let h = (H + 12 - 1) % 12;
+  let h = H % 12;
 
   return format .replace(/yyyy/g, yyyy)
                 .replace(/yy/g, yyyy.toString().slice(-2))
